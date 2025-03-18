@@ -50,7 +50,7 @@ public class AdivinanzaClimatica {
             System.out.print("Ingrese una temperatura: ");
             guess = scanner.nextInt();
 
-            if (guess < -10 && guess > 50) {
+            if (guess < -10 || guess > 50) {
                 System.out.println("Por favor ingrese un número entre -10 y 50.");
                  tries--;
                 continue;
