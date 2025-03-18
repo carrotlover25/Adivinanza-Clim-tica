@@ -62,4 +62,30 @@ public class Arbol {
            
         }
     }
+
+    private void imprimirArbol(Nodo raiz, String estructuraDibujar, boolean esIzquierdo) {
+        if (raiz == null) {
+            return;
+        }
+
+        String nuevaEstructura = estructuraDibujar;
+        String simbolo;
+
+        if (esIzquierdo) {
+            simbolo = "├── ";
+            nuevaEstructura += "│   ";
+        } else {
+            simbolo = "└── ";
+            nuevaEstructura += "    ";
+        }
+
+        System.out.println(estructuraDibujar + simbolo + raiz.dato);
+
+        imprimirArbol(raiz.izquierdo, nuevaEstructura, true);
+        imprimirArbol(raiz.derecho, nuevaEstructura, false);
+    }
+    
+    public void imprimirArbol(Nodo raiz) {
+        imprimirArbol(raiz, "", false);
+    }
 }

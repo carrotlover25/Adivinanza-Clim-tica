@@ -25,7 +25,8 @@ public class AdivinanzaClimatica {
             int a = random.nextInt(-10, 50);
             arbol.insertarNodo(a);
         }
-        arbol.imprimir(arbol.raiz, 0);
+        arbol.imprimirArbol(arbol.raiz);
+        // arbol.imprimir(arbol.raiz, 0);
     }
     
 }
