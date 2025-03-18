@@ -28,21 +28,19 @@ public class Arbol {
             if (nodo.izquierdo == null){
                 nodo.izquierdo = nuevonodo;
             } else {
-                insertarRecursivo(nodo.izquierdo, nuevonodo, nivel++);
+                insertarRecursivo(nodo.izquierdo, nuevonodo, nivel + 1);
             }
         } else {
             if (nuevonodo.dato > nodo.dato){
                 if (nodo.derecho == null){
                     nodo.derecho = nuevonodo;
                 } else {
-                    insertarRecursivo(nodo.derecho, nuevonodo, nivel++);
+                    insertarRecursivo(nodo.derecho, nuevonodo, nivel + 1);
                 }
             }
         } 
     }
     
-    
-
     private void imprimirArbol(Nodo raiz, String estructuraDibujar, boolean esIzquierdo) {
         if (raiz == null) {
             return;
@@ -69,12 +67,12 @@ public class Arbol {
         imprimirArbol(raiz, "", false);
     }
     
-    public boolean ruta (int elemento, int secreto){
+    public boolean ruta(int elemento, int secreto){
         Nodo current = raiz;
         int nivel = 1;
         System.out.print("Ruta: ");
         while (current != null){
-            System.out.println(current.dato + " -> ");
+            System.out.print(current.dato + " -> ");
             
             if (elemento == current.dato){
                 System.out.println("Esta no es la temperatura correcta. Sigue Intentando");
@@ -82,7 +80,7 @@ public class Arbol {
             } else if (elemento == secreto){
                 System.out.println("¡Has acertado, felicitaciones!");
                 return true;
-            } else if (elemento < current.dato ){
+            } else if (elemento < current.dato){
                 current = current.izquierdo;
             } else {
                 current = current.derecho;
@@ -91,6 +89,4 @@ public class Arbol {
         }
         return false;
     }
-
-    
 }
