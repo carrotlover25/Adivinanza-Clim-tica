@@ -72,8 +72,11 @@ public class AdivinanzaClimatica {
         if (!adivinado) {
             System.out.println("\n¡Has agotado tus intentos!");
             System.out.println("La temperatura secreta era: " + temp_secreta + "°C");
-        }
+        } else {
+            System.out.println("Adivinaste correctamente!");
+            arbol.tipoNodo(temp_secreta);
         
         scanner.close();
     }
+ } 
 }
