@@ -108,4 +108,30 @@ public class Arbol {
         System.out.println("\nEl número ingresado no se encuentra en el árbol.");
         return false;
     }
+
+    public Nodo encontrado (int elemento, Nodo nodo){
+        if (nodo == null){
+            return nodo;
+        }
+        if (nodo.dato == elemento){
+            return nodo;
+        } else if (elemento < nodo.dato) {
+                return encontrado(elemento, nodo.izquierdo);
+            } else if (elemento > nodo.dato){
+                return encontrado(elemento, nodo.derecho);
+            } return null;
+        } 
+  
+  public void tipoNodo (int elemento){
+      Nodo nodo = encontrado(elemento, raiz);
+      
+      if (nodo.izquierdo == null && nodo.derecho == null){
+          System.out.println("Este nodo es una hoja");
+      } else if (nodo.izquierdo != null || nodo.derecho != null){
+          System.out.println("Este nodo es un padre");
+      } else if (nodo == raiz){
+          System.out.println("Este nodo es la raíz del arbol");
+      }
+  }
+    
 }    
