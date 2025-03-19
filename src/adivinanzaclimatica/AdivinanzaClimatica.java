@@ -29,7 +29,7 @@ public class AdivinanzaClimatica {
         System.out.println("¡Adivinanza Climatica!");
         System.out.println("¡Adivine la temperatura promedio global en 4 intentos!");
         
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < 64; i++) {
             int a = random.nextInt(-10, 50);
             temperatura.add(a);       
         }
