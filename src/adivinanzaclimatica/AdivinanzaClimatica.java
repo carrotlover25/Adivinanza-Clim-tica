@@ -75,6 +75,7 @@ public class AdivinanzaClimatica {
         } else {
             System.out.println("Adivinaste correctamente!");
             arbol.tipoNodo(temp_secreta);
+            arbol.nivelNodo(temp_secreta);
         
         scanner.close();
     }

@@ -133,5 +133,24 @@ public class Arbol {
           System.out.println("Este nodo es la raíz del arbol");
       }
   }
+
+  public void nivelNodo(int valor) {
+        Nodo actual = raiz;
+        int nivel = 0;
+
+        while (actual != null) {
+            if (actual.dato == valor) {
+                System.out.println("El nivel del nodo es " + nivel); 
+            }
+            
+            if (valor < actual.dato) {
+                actual = actual.izquierdo;
+            } else {
+                actual = actual.derecho;
+            }
+            nivel++; 
+        }
+        
+    }
     
 }    
