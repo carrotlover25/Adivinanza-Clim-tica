@@ -40,6 +40,7 @@ public class AdivinanzaClimatica {
         
         int temp_secreta = temperatura.get(random.nextInt(temperatura.size()));
 
+        
 
         
         System.out.println("Se ha generado un árbol de temperaturas. Intenta adivinar la temperatura secreta.");
