@@ -5,6 +5,7 @@
 package adivinanzaclimatica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,13 +33,14 @@ public class AdivinanzaClimatica {
             int a = random.nextInt(-10, 50);
             temperatura.add(a);       
         }
+        Collections.sort(temperatura);
+       
+
+        arbol.insertarBalanceado(temperatura, 0, temperatura.size() - 1, 1);
         
-        for (int t : temperatura) {
-            arbol.insertarNodo(t);
-        }
-        
-        int i = random.nextInt(temperatura.size());
-        int temp_secreta = temperatura.get(i);
+        int temp_secreta = temperatura.get(random.nextInt(temperatura.size()));
+
+
         
         System.out.println("Se ha generado un árbol de temperaturas. Intenta adivinar la temperatura secreta.");
         arbol.imprimirArbol(arbol.raiz);
