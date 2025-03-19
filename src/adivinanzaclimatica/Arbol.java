@@ -90,11 +90,6 @@ public class Arbol {
         while (current != null) {
             System.out.print(current.dato + " -> ");
     
-            if (current.dato == secreto) {
-                System.out.println("\n¡Has acertado, felicitaciones!");
-                return true;
-            }
-    
             if (elemento == current.dato) {
                 System.out.println("\nEsta no es la temperatura correcta. Sigue Intentando");
                 return false;

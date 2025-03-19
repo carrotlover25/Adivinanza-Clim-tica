@@ -29,15 +29,16 @@ public class AdivinanzaClimatica {
         System.out.println("¡Adivinanza Climatica!");
         System.out.println("¡Adivine la temperatura promedio global en 4 intentos!");
         
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < 32; i++) {
             int a = random.nextInt(-10, 50);
             temperatura.add(a);       
         }
         Collections.sort(temperatura);
-
+       
         arbol.insertarBalanceado(temperatura, 0, temperatura.size() - 1, 1);
-        
+        System.out.println(temperatura);
         int temp_secreta = temperatura.get(random.nextInt(temperatura.size()));
+        System.out.println(temp_secreta);
 
         System.out.println("Se ha generado un árbol de temperaturas. Intenta adivinar la temperatura secreta.");
         arbol.imprimirArbol(arbol.raiz);
