@@ -29,19 +29,16 @@ public class AdivinanzaClimatica {
         System.out.println("¡Adivinanza Climatica!");
         System.out.println("¡Adivine la temperatura promedio global en 4 intentos!");
         
-        for (int i = 0; i < 31; i++) {
+        for (int i = 0; i < 64; i++) {
             int a = random.nextInt(-10, 50);
             temperatura.add(a);       
         }
         Collections.sort(temperatura);
-       
 
         arbol.insertarBalanceado(temperatura, 0, temperatura.size() - 1, 1);
         
         int temp_secreta = temperatura.get(random.nextInt(temperatura.size()));
 
-
-        
         System.out.println("Se ha generado un árbol de temperaturas. Intenta adivinar la temperatura secreta.");
         arbol.imprimirArbol(arbol.raiz);
         
@@ -72,12 +69,13 @@ public class AdivinanzaClimatica {
         if (!adivinado) {
             System.out.println("\n¡Has agotado tus intentos!");
             System.out.println("La temperatura secreta era: " + temp_secreta + "°C");
+            System.out.println("La elevación de las temperaturas provoca un aumento en las enfermedades relacionadas con el calor y hace que trabajar en exteriores sea más difícil. Se producen incendios incontrolados con mayor facilidad y se extienden más rápidamente cuando el ambiente es más cálido.");
         } else {
             System.out.println("Adivinaste correctamente!");
             arbol.tipoNodo(temp_secreta);
             arbol.nivelNodo(temp_secreta);
         
         scanner.close();
-    }
- } 
+        }
+    } 
 }

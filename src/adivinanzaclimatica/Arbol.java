@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Arbol {
     Nodo raiz;
     
-    public void insertarNodo(int valor){ // porque puede ser una raiz
+    public void insertarNodo(int valor){
         Nodo nuevonodo = new Nodo(valor);
         if (this.raiz == null){
             this.raiz = nuevonodo;
@@ -24,7 +24,7 @@ public class Arbol {
     
     
     public void insertarRecursivo(Nodo nodo, Nodo nuevonodo, int nivel){
-        if (nivel >= 5){
+        if (nivel >= 6){
             return;
         }
         if (nuevonodo.dato < nodo.dato){
@@ -45,7 +45,7 @@ public class Arbol {
     }
 
     public void insertarBalanceado(ArrayList<Integer> lista, int inicio, int fin, int nivel) {
-        if (inicio > fin || nivel > 5) { 
+        if (inicio > fin || nivel > 6) { 
             return; 
         }
         
@@ -56,7 +56,6 @@ public class Arbol {
         insertarBalanceado(lista, medio + 1, fin, nivel + 1); 
     }
     
-
     
     private void imprimirArbol(Nodo raiz, String estructuraDibujar, boolean esIzquierdo) {
         if (raiz == null) {
@@ -101,8 +100,11 @@ public class Arbol {
                 return false;
             }
     
-            // Moverse a la izquierda o derecha
-            current = (elemento < current.dato) ? current.izquierdo : current.derecho;
+            if (elemento < current.dato) {
+                current = current.izquierdo;
+            } else {
+                current = current.derecho;
+            }
         }
     
         System.out.println("\nEl número ingresado no se encuentra en el árbol.");
@@ -122,35 +124,35 @@ public class Arbol {
             } return null;
         } 
   
-  public void tipoNodo (int elemento){
-      Nodo nodo = encontrado(elemento, raiz);
-      
-      if (nodo.izquierdo == null && nodo.derecho == null){
-          System.out.println("Este nodo es una hoja");
-      } else if (nodo.izquierdo != null || nodo.derecho != null){
-          System.out.println("Este nodo es un padre");
-      } else if (nodo == raiz){
-          System.out.println("Este nodo es la raíz del arbol");
-      }
-  }
+    public void tipoNodo (int elemento){
+        Nodo nodo = encontrado(elemento, raiz);
+        
+        if (nodo.izquierdo == null && nodo.derecho == null){
+            System.out.println("Este nodo es una hoja");
+        } else if (nodo.izquierdo != null || nodo.derecho != null){
+            System.out.println("Este nodo es un padre");
+        } else if (nodo == raiz){
+            System.out.println("Este nodo es la raíz del arbol");
+        }
+    }
 
-  public void nivelNodo(int valor) {
-        Nodo actual = raiz;
-        int nivel = 0;
+    public void nivelNodo(int valor) {
+            Nodo actual = raiz;
+            int nivel = 0;
 
-        while (actual != null) {
-            if (actual.dato == valor) {
-                System.out.println("El nivel del nodo es " + nivel); 
+            while (actual != null) {
+                if (actual.dato == valor) {
+                    System.out.println("El nivel del nodo es " + nivel); 
+                }
+                
+                if (valor < actual.dato) {
+                    actual = actual.izquierdo;
+                } else {
+                    actual = actual.derecho;
+                }
+                nivel++; 
             }
             
-            if (valor < actual.dato) {
-                actual = actual.izquierdo;
-            } else {
-                actual = actual.derecho;
-            }
-            nivel++; 
         }
-        
-    }
     
 }    
